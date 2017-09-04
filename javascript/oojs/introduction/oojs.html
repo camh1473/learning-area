@@ -1,28 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Object-oriented JavaScript example</title>
-  </head>
 
-  <body>
-    <div>
-      <label for="jscode">Enter code:</label>
-      <input type="text" id="jscode">
-      <button>Submit code</button>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <title>Object-oriented JavaScript example</title>
+</head>
 
-    <p></p>
-  </body>
+<body>
+  <div>
+    <label for="jscode">Enter code:</label>
+    <input type="text" id="jscode">
+    <button>Submit code</button>
+  </div>
+  <p></p>
+</body>
+<script>
+var input = document.querySelector('input');
+var btn = document.querySelector('button');
+var para = document.querySelector('p');
 
-    <script>
-      var input = document.querySelector('input');
-      var btn = document.querySelector('button');
-      var para = document.querySelector('p');
+btn.onclick = function() {
+  var code = input.value;
+  para.textContent = eval(code);
+}
 
-      btn.onclick = function() {
-        var code = input.value;
-        para.textContent = eval(code);
-      }
-    </script>
+// **OOP PRACTICE**
+// define & initiialize object using empty curlies
+var person = {
+  name: {
+    first: "Bob",
+    last: "Smith"
+  },
+  age: 32,
+  gender: "male",
+  interests: ["music", "skiing"],
+  bio: function() {
+    alert(this.name.first + " " + this.name.last + " " + this.age + " years old. He likes " + this.interests[0] + " and " + this.interests[1] + ".")
+  },
+  greeting: function() {
+    alert("Hi I'm " + this.name.first + ".");
+  }
+};
+var myDataName = "height";
+  var myDataValue = "1.75m";
+  person[myDataName] = myDataValue;
+
+function Person (first, last, age, gender, interests){
+  this.name = {
+    first,
+    last
+  };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+  this.bio = function (){
+    alert(this.name.first + " " + this.name.last + " is " + this.age + " years old. He likes " + this.interests[0] + " and " + this.interests[1] + ".");
+    if(this.gender === "female"){
+      var str = alert.replace("He","She");
+      return str; 
+    }else{
+      return;
+    }
+  }
+    this.greeting = function() {
+      alert("Hi I'm " + this.name.first + ".");
+    };
+  };
+
+  var person1 = new Person("Bob", "Smith", 32, "female", ['music', "skiing"]);
+</script>
+
 </html>
